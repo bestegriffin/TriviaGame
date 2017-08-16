@@ -113,7 +113,9 @@
 				answerPage();
 			});
 		}
+		function resetHover(){
 
+		}
 		function countdown(){
 			seconds = 15;
 			$('#timeClock').html('<h3>Time Remaining: ' + seconds + '</h3>');
@@ -144,6 +146,7 @@
 			$('#currentQuestion').empty();
 			$('.userChoice').empty(); //Clears question page
 			$('.question').empty();
+			$('.answerList').empty();
 
 			var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 			//checks to see correct, incorrect, or unanswered
@@ -164,7 +167,9 @@
 			} else{
 				currentQuestion++;
 				setTimeout(newQuestion, 2000);
-			}	
+			}
+
+			$('section').removeClass("timeClockFlash animated flash");
 		}
 
 		function scoreboard(){
@@ -177,4 +182,5 @@
 			$('#startOverBtn').addClass('reset');
 			$('#startOverBtn').show();
 			$('#startOverBtn').html('Replay?');
+			$('section').removeClass("timeClockFlash animated flash");
 		}
